@@ -1,7 +1,5 @@
 import React from "react"
 import "./BoogleBoard.css"
-import BoardArea from "../section/BoardArea";
-
 
 class Square extends React.Component {
     render() {
@@ -50,17 +48,6 @@ class BoogleBoard extends React.Component {
             </div>
         );
     }
-
-
-
-    render2() {
-        return (
-            <div>
-                This is where squre grid is drawn.
-            </div>
-        )
-    }
-
 
 }
 
