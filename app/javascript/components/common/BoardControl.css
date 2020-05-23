@@ -1,0 +1,40 @@
+
+#container{
+    text-align: center;
+}
+
+.btnGameStartStop {
+    width: 100px;
+    height: 30px;
+    border-radius: 15px;
+    background-color: #95bb76;
+    border-color: #97935c;
+    border-width: 2px;
+}
+
+.btnGameStartStop:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+.btnSingleText {
+    width: 100px;
+    height: 30px;
+    border-radius: 15px;
+    background-color: #95bb76;
+    border-color: #97935c;
+}
+
+.btnSingleText:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+
+
+.divider{
+    width:50px;
+    height:auto;
+    display:inline-block;
+}
+
