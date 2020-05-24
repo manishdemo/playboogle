@@ -1,7 +1,7 @@
 .square {
     background: #95bb76;
     border: 1px solid #999;
-    float: right;
+    float: center;
     font-size: 40px;
     font-weight: bold;
     line-height: 50px;
@@ -30,4 +30,5 @@
 .boogle-board {
     alignment: center;
     width: 80%;
+    padding-left: 30%;
 }
