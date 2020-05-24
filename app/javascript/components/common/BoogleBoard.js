@@ -1,11 +1,12 @@
 import React from "react"
 import "./BoogleBoard.css"
+import * as PropTypes from "prop-types";
 
 class Square extends React.Component {
     render() {
         return (
             <button className="square">
-                 A
+                {this.props.value}
             </button>
         );
     }
@@ -14,10 +15,13 @@ class Square extends React.Component {
 class BoogleBoard extends React.Component {
 
     renderSquare(i) {
-        return <Square />;
+        return <Square value={this.props.boogleString[i]}  />;
     }
 
     render() {
+        console.log("In Boogle Board Render")
+        let boogleString = this.props.boogleString;
+        console.log(boogleString.charAt(0))
         return (
             <div className="boogle-board">
                 <div className="board-row">
@@ -25,6 +29,7 @@ class BoogleBoard extends React.Component {
                     {this.renderSquare(1)}
                     {this.renderSquare(2)}
                     {this.renderSquare(3)}
+
                 </div>
                 <div className="board-row">
                     {this.renderSquare(4)}
@@ -51,5 +56,8 @@ class BoogleBoard extends React.Component {
 
 }
 
+BoogleBoard.propTypes = {
+    boogleString: PropTypes.string
+};
 
 export default BoogleBoard

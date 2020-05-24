@@ -33,3 +33,5 @@ export class ScoreArea extends React.Component {
         )
     }
 }
+
+export default ScoreArea

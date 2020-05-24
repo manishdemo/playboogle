@@ -1,8 +1,13 @@
 module Api
 class BoardsController < ApplicationController
   def start
-    render(json: {"asd":"asd"})
+    render(
+        json: {
+            id: 1,
+            boogle_string: "bsttrafrhwleoedm"
+        }
+    )
   end
-  end
+end
 
 end
