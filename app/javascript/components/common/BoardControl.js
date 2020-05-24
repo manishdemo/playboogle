@@ -7,7 +7,7 @@ export class BoardControl extends React.Component {
         return (
             <div id="container">
                 <button onClick={this.props.onClick} className="btnGameStartStop">
-                    {this.props.gameStarted ? "Start Game" : "Stop Game"}
+                    {this.props.gameStarted ? "Stop Game" : "Start Game"}
                 </button>
 
                 <div className="divider"/>
@@ -17,7 +17,7 @@ export class BoardControl extends React.Component {
                 </button>
 
                 <div className="divider"/>
-                <button onClick={this.props.onClick1} className="btnSingleText">
+                <button onClick={this.props.onClickNewGame} className="btnSingleText">
                     New Game
                 </button>
 
