@@ -1,22 +1,22 @@
 module Api
+
+include ApplicationHelper
+
 class BoardsController < ApplicationController
 
   def start
-    boogle_strings = ["bsttrafrhwleoedm",
-                       "dkooctsriwlgrgwn",
-                       "rsikueszrerraawm",
-                       "atpelueithvoiohm",
-                       "eoireoneyrtysrsm"
-    ]
-
-    game_index = rand (0 ..  boogle_strings.length-1)
+    game_index = rand (0 ..  BOOGLE_STRINGS.length-1)
 
     render(
         json: {
             id: game_index,
-            boogle_string: boogle_strings.at(game_index)
+            boogle_string: BOOGLE_STRINGS.at(game_index)
         }
     )
+  end
+
+  def verify(id)
+
   end
 end
 
