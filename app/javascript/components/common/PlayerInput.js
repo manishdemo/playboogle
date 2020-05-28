@@ -21,7 +21,7 @@ class PlayerInput extends React.Component {
 
     render() {
         return (
-            <div>
+            <div >
                 <br/>
                 <form onSubmit={this.handleSubmit}>
                     <label>
