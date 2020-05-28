@@ -1,4 +1,4 @@
 
 
 export const API_URL = "http://localhost:3000/api"
-export const GAME_DURATION = 180
+export const GAME_DURATION = 10

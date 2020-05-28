@@ -17,7 +17,11 @@ class BoardArea extends React.Component {
             gameInfo: {
                 id: -1,
                 boogle_string: "ABCDABCDABCDABCD"
-            }
+            },
+            history: [
+                ["cat",1],
+                ["zebra",2]
+            ]
 
         };
 
@@ -77,7 +81,7 @@ class BoardArea extends React.Component {
                     <BoogleBoard boogleString={this.state.gameInfo.boogle_string}/>
                     <PlayerInput/>
                 </div>
-                <ScoreArea/>
+                <ScoreArea history={this.state.history}/>
             </div>
         );
     }

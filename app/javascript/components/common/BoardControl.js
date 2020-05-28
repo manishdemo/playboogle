@@ -13,7 +13,7 @@ function TimeDisplayMMSS(props) {
     </div>;
 }
 
-TimeDisplayMMSS.propTypes = {timeRemaining: PropTypes.string};
+TimeDisplayMMSS.propTypes = {timeRemaining: PropTypes.number};
 
 export class BoardControl extends React.Component {
     render() {
