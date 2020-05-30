@@ -6,11 +6,15 @@ export class ScoreArea extends React.Component {
         const history = this.props.history;
         let total_score = 0;
 
+        let count = 0;
+
         const scores = Object.entries(history).map(
             ([word, score]) => {
                 total_score += score;
+                count += 1;
                 return (
                     <tr key={word}>
+                        <td className="serial-col">{count}</td>
                         <td>{word}</td>
                         <td>{score}</td>
                     </tr>
@@ -22,10 +26,11 @@ export class ScoreArea extends React.Component {
 
         return (
             <div className="score-area">
-                <h1 align={"center"}> Score Board </h1>
+                <h1 > Score Board </h1>
                 <table>
                     <tbody>
                         <tr>
+                            <th className="serial-col">S.No. </th>
                             <th>Word</th>
                             <th>Point</th>
                         </tr>
