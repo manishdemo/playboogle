@@ -18,10 +18,12 @@ class BoardArea extends React.Component {
                 id: -1,
                 boogle_string: "ABCDABCDABCDABCD"
             },
-            history: [
-                ["cat",1],
-                ["zebra",2]
-            ]
+            history: {
+                "cat": 1,
+                "zebra": 2
+            },
+
+            inputWord:""
 
         };
 
@@ -29,6 +31,8 @@ class BoardArea extends React.Component {
         this.handleGameStartStopClick = this.handleGameStartStopClick.bind(this);
         this.handleResetClick = this.handleResetClick.bind(this);
         this.handleNewGameClick = this.handleNewGameClick.bind(this);
+        this.handleInputWordChange = this.handleInputWordChange.bind(this);
+        this.handleWordSubmit = this.handleWordSubmit.bind(this);
     }
 
     handleGameStartStopClick() {
@@ -53,6 +57,75 @@ class BoardArea extends React.Component {
         this.resetTimer(false);
     }
 
+    handleInputWordChange(word) {
+        this.setState({inputWord: word});
+    }
+
+    handleWordSubmit( event) {
+        const inputWord = this.state.inputWord;
+        const history = this.state.history;
+
+        if (!(inputWord in history)) {
+            const gameId=this.state.gameInfo.id;
+            this.getScoreFromApi(inputWord, gameId);
+        }
+
+        this.setState({inputWord: ""});
+        event.preventDefault();
+    }
+
+    render() {
+        return (
+            <div className="game-area">
+                <div className="board-area">
+                    <BoardControl onClick={this.handleGameStartStopClick} gameStarted={this.state.isGameStarted}
+                                  onClick1={this.handleResetClick}
+                                  onClickNewGame={this.handleNewGameClick}
+                                  timeRemaining={this.state.timeRemaining}/>
+                    <BoogleBoard boogleString={this.state.gameInfo.boogle_string}/>
+                    <PlayerInput inputWord={this.state.inputWord} onWordSubmit={this.handleWordSubmit}
+                                 onInputWordChange={this.handleInputWordChange}/>
+                </div>
+                <ScoreArea history={this.state.history}/>
+            </div>
+        );
+    }
+
+    componentDidMount() {
+        this.getNewGameFromApi();
+    }
+
+    getNewGameFromApi( extra_callback ) {
+        axios.get(`start`)
+            .then(res => {
+                const response = res.data;
+                this.setState({gameInfo: response});
+                this.setState(  {isGameStarted: false})
+            })
+    }
+
+    getScoreFromApi(inputWord, gameId) {
+        axios.get('score', {params: {id: gameId, word: inputWord} })
+            .then(res => {
+                if (res && res.status == 200) {
+                    const response = res.data;
+
+                    if (response.score>0) {
+                        const history = this.state.history;
+                        this.setState({
+                            history: {
+                                ...history,
+                                [inputWord]: response.score
+                            }
+                            }
+                        )
+                    }
+                }
+            }
+            )
+
+    }
+
     resetTimer(toStartTimer=true) {
         if (this.timerID) {
             clearInterval(this.timerID);
@@ -69,44 +142,6 @@ class BoardArea extends React.Component {
             );
         }
     }
-
-    render() {
-        return (
-            <div className="game-area">
-                <div className="board-area">
-                    <BoardControl onClick={this.handleGameStartStopClick} gameStarted={this.state.isGameStarted}
-                                  onClick1={this.handleResetClick}
-                                  onClickNewGame={this.handleNewGameClick}
-                                  timeRemaining={this.state.timeRemaining}/>
-                    <BoogleBoard boogleString={this.state.gameInfo.boogle_string}/>
-                    <PlayerInput/>
-                </div>
-                <ScoreArea history={this.state.history}/>
-            </div>
-        );
-    }
-
-    componentDidMount() {
-        this.getNewGameFromApi();
-    }
-
-    getNewGameFromApi( extra_callback ) {
-        axios.get(`start`)
-            .then(res => {
-                const response = res.data;
-                this.setState({gameInfo: response});
-                // console.log( "callback of api call of componentDidMount: " + this.state.gameInfo.boogle_string)
-                this.setState(  {isGameStarted: false})
-            })
-    }
-
-    // componentMountCallback = () => {
-    //     this.setState(  {isGameStarted: false})
-    // };
-    //
-    // newGameCallback = () => {
-    //     this.setState(  {isGameStarted: false})
-    // };
 
     tick() {
         this.setState({

@@ -15,8 +15,16 @@ class BoardsController < ApplicationController
     )
   end
 
-  def verify(id)
+  def score
+    game_id = params[:id]
+    word = params[:word]
 
+    # TODO: add real logic for scoring.
+    render(
+        json: {
+            score: 3
+        }
+    )
   end
 end
 

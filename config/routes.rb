@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   namespace :api, defaults: {format: 'json'} do
     get 'start', to: 'boards#start'
+    get 'score', to: 'boards#score'
   end
 
   root 'boogles#index'

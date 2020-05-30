@@ -6,15 +6,19 @@ export class ScoreArea extends React.Component {
         const history = this.props.history;
         let total_score = 0;
 
-        const scores = history.map(word_score => {
-            total_score += word_score[1];
-            return  (
-                <tr key={word_score[0]}>
-                    <td>{word_score[0]}</td>
-                    <td>{word_score[1]}</td>
-                </tr>
-            )
-        });
+        const scores = Object.entries(history).map(
+            ([word, score]) => {
+                total_score += score;
+                return (
+                    <tr key={word}>
+                        <td>{word}</td>
+                        <td>{score}</td>
+                    </tr>
+                )
+            }
+        )
+
+
 
         return (
             <div className="score-area">
