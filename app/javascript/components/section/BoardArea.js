@@ -24,7 +24,6 @@ class BoardArea extends React.Component {
             },
 
             inputWord:""
-
         };
 
         // This binding is necessary to make `this` work in the callback
@@ -37,7 +36,8 @@ class BoardArea extends React.Component {
 
     handleGameStartStopClick() {
         this.setState(state => ({
-            isGameStarted: !state.isGameStarted
+            isGameStarted: !state.isGameStarted,
+            inputWord: "",
         }));
 
         if (this.state.isGameStarted) {
@@ -45,16 +45,29 @@ class BoardArea extends React.Component {
 
         } else {
             this.resetTimer();
+            this.setState(state => ({
+                history: {}
+            }));
+
         }
     }
 
     handleResetClick() {
         this.resetTimer(this.state.isGameStarted);
+        this.setState(state => ({
+            inputWord: "",
+            history: {}
+        }));
+
     }
 
     handleNewGameClick() {
         this.getNewGameFromApi()
         this.resetTimer(false);
+        this.setState(state => ({
+            inputWord: "",
+            history: {}
+        }));
     }
 
     handleInputWordChange(word) {
@@ -71,7 +84,7 @@ class BoardArea extends React.Component {
         }
 
         this.setState({inputWord: ""});
-        event.preventDefault();
+        // event.preventDefault();
     }
 
     render() {
@@ -84,6 +97,7 @@ class BoardArea extends React.Component {
                                   timeRemaining={this.state.timeRemaining}/>
                     <BoogleBoard boogleString={this.state.gameInfo.boogle_string}/>
                     <PlayerInput inputWord={this.state.inputWord} onWordSubmit={this.handleWordSubmit}
+                                 isGameStarted={this.state.isGameStarted}
                                  onInputWordChange={this.handleInputWordChange}/>
                 </div>
                 <ScoreArea history={this.state.history}/>
@@ -150,7 +164,10 @@ class BoardArea extends React.Component {
 
         if (this.state.timeRemaining == 0) {
             clearInterval(this.timerID);
-            this.setState(  {isGameStarted: false})
+            this.setState({
+                isGameStarted: false,
+                inputWord: ""
+            })
         }
     }
 

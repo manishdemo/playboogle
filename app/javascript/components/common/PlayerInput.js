@@ -14,7 +14,10 @@ class PlayerInput extends React.Component {
     }
 
     handleSubmit(event) {
-        this.props.onWordSubmit(event);
+        if (this.props.isGameStarted) {
+            this.props.onWordSubmit(event);
+        }
+        event.preventDefault();
     }
 
     render() {
@@ -25,7 +28,10 @@ class PlayerInput extends React.Component {
                 <form onSubmit={this.handleSubmit}>
                     <label>
                         Your word:
-                        <input type="text" value={inputWord} onChange={this.handleChange} className="word-input" />
+                        <input type="text" value={inputWord} onChange={this.handleChange}
+                               disabled = {(this.props.isGameStarted)? "" : "disabled"}
+                               autofocus="true"
+                               className="word-input" />
                     </label>
                     <input type="submit" value="Submit" className="word-submit" />
                 </form>
