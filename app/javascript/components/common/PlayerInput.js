@@ -44,5 +44,4 @@ class PlayerInput extends React.Component {
 export default React.forwardRef( (props, ref) => <PlayerInput
     innerRef={ref} {...props}
     />
-
 );

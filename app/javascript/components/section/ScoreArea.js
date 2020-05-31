@@ -27,7 +27,7 @@ export class ScoreArea extends React.Component {
         return (
             <div className="score-area">
                 <h1 > Score Board </h1>
-                <table>
+                <table ref={this.props.innerRef}>
                     <tbody>
                         <tr>
                             <th className="serial-col">S.No. </th>
@@ -47,4 +47,8 @@ export class ScoreArea extends React.Component {
     }
 }
 
-export default ScoreArea
+//export default ScoreArea
+export default React.forwardRef( (props, ref) => <ScoreArea
+        innerRef={ref} {...props}
+    />
+);
