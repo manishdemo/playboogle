@@ -11,6 +11,7 @@ import {GAME_DURATION} from "../../constants";
 class BoardArea extends React.Component {
     constructor(props) {
         super(props);
+        this.ref = React.createRef();
         this.state = {
             isGameStarted: false,
             timeRemaining: GAME_DURATION,
@@ -48,8 +49,8 @@ class BoardArea extends React.Component {
             this.setState(state => ({
                 history: {}
             }));
-
         }
+
     }
 
     handleResetClick() {
@@ -96,7 +97,7 @@ class BoardArea extends React.Component {
                                   onClickNewGame={this.handleNewGameClick}
                                   timeRemaining={this.state.timeRemaining}/>
                     <BoogleBoard boogleString={this.state.gameInfo.boogle_string}/>
-                    <PlayerInput inputWord={this.state.inputWord} onWordSubmit={this.handleWordSubmit}
+                    <PlayerInput ref={this.ref} inputWord={this.state.inputWord} onWordSubmit={this.handleWordSubmit}
                                  isGameStarted={this.state.isGameStarted}
                                  onInputWordChange={this.handleInputWordChange}/>
                 </div>
@@ -105,8 +106,12 @@ class BoardArea extends React.Component {
         );
     }
 
-    componentDidMount() {
+    componentWillMount() {
         this.getNewGameFromApi();
+    }
+
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        this.ref.current.focus();
     }
 
     getNewGameFromApi( extra_callback ) {

@@ -30,7 +30,7 @@ class PlayerInput extends React.Component {
                         Your word:
                         <input type="text" value={inputWord} onChange={this.handleChange}
                                disabled = {(this.props.isGameStarted)? "" : "disabled"}
-                               autofocus="true"
+                               ref={this.props.innerRef}
                                className="word-input" />
                     </label>
                     <input type="submit" value="Submit" className="word-submit" />
@@ -40,4 +40,9 @@ class PlayerInput extends React.Component {
     }
 }
 
-export default PlayerInput
+// export default PlayerInput
+export default React.forwardRef( (props, ref) => <PlayerInput
+    innerRef={ref} {...props}
+    />
+
+);

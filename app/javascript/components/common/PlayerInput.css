@@ -13,7 +13,13 @@
 }
 
 .word-input {
-    background-color: #8be3e1;
+    background-color: #d3f7ad;
     border-color: #8be3e1;
     margin-left: 10px;
+
 }
+
+.word-input:enabled {
+    background-color: #95bb76;
+}
+
