@@ -6,7 +6,7 @@ import BoogleBoard from "../common/BoogleBoard"
 import BoardControl from "../common/BoardControl"
 import PlayerInput from "../common/PlayerInput"
 import ScoreArea from "./ScoreArea";
-import {GAME_DURATION} from "../../constants";
+import {GAME_DURATION, MIN_WORD_LEN} from "../../constants";
 
 class BoardArea extends React.Component {
     constructor(props) {
@@ -77,10 +77,10 @@ class BoardArea extends React.Component {
     }
 
     handleWordSubmit( event) {
-        const inputWord = this.state.inputWord;
+        const inputWord = this.state.inputWord.trim();
         const history = this.state.history;
 
-        if (!(inputWord in history)) {
+        if (!(inputWord in history) && inputWord.length >= MIN_WORD_LEN) {
             const gameId=this.state.gameInfo.id;
             this.getScoreFromApi(inputWord, gameId);
         }
