@@ -1,0 +1,72 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BoogleBoard should render correctly 1`] = `
+<div
+  className="boogle-board"
+>
+  <div
+    className="board-row"
+  >
+    <Square
+      value="A"
+    />
+    <Square
+      value="B"
+    />
+    <Square
+      value="C"
+    />
+    <Square
+      value="D"
+    />
+  </div>
+  <div
+    className="board-row"
+  >
+    <Square
+      value="E"
+    />
+    <Square
+      value="F"
+    />
+    <Square
+      value="G"
+    />
+    <Square
+      value="H"
+    />
+  </div>
+  <div
+    className="board-row"
+  >
+    <Square
+      value="I"
+    />
+    <Square
+      value="J"
+    />
+    <Square
+      value="K"
+    />
+    <Square
+      value="L"
+    />
+  </div>
+  <div
+    className="board-row"
+  >
+    <Square
+      value="M"
+    />
+    <Square
+      value="N"
+    />
+    <Square
+      value="O"
+    />
+    <Square
+      value="P"
+    />
+  </div>
+</div>
+`;

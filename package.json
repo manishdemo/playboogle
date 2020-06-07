@@ -16,6 +16,26 @@
   },
   "version": "0.1.0",
   "devDependencies": {
+    "@jest/environment": "^26.0.1",
+    "@jest/globals": "^26.0.1",
+    "babel-jest": "^26.0.1",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.2",
+    "enzyme-to-json": "^3.5.0",
+    "jest": "^26.0.1",
+    "react-test-renderer": "^16.13.1",
     "webpack-dev-server": "^3.11.0"
+  },
+  "jest": {
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ],
+    "setupFiles": [
+      "./setupTests.js"
+    ],
+    "rootDir": "./test/javascript",
+    "moduleNameMapper": {
+      "\\.(css|less)$": "<rootDir>/mocks/styleMock.js"
+    }
   }
 }

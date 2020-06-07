@@ -19,9 +19,9 @@ class BoogleBoard extends React.Component {
     }
 
     render() {
-        console.log("In Boogle Board Render")
+        // console.log("In Boogle Board Render")
         let boogleString = this.props.boogleString;
-        console.log(boogleString.charAt(0))
+        // console.log(boogleString.charAt(0))
         return (
             <div className="boogle-board">
                 <div className="board-row">
