@@ -1,8 +1,3 @@
 
+BOOGLE_STRINGS = %w[bsttrafrhwleoedm dkooctsriwlgrgwn rsikueszrerraawm atpelueithvoiohm eoireoneyrtysrsm]
 
-BOOGLE_STRINGS = ["bsttrafrhwleoedm",
-                  "dkooctsriwlgrgwn",
-                  "rsikueszrerraawm",
-                  "atpelueithvoiohm",
-                  "eoireoneyrtysrsm"
-]
