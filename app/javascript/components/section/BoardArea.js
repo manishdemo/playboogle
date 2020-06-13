@@ -21,8 +21,6 @@ class BoardArea extends React.Component {
                 boogle_string: "ABCDABCDABCDABCD"
             },
             history: {
-                "cat": 1,
-                "zebra": 2
             },
 
             inputWord:""

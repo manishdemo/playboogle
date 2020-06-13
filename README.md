@@ -1,32 +1,33 @@
 # Boogle Game
 
-This is a Boogle game developed using React and Ruby on Rails.
+This is a Boogle game developed using React and Ruby on Rails. The implementation
+has been made as simple as possible. 
 
 
 #### Run it locally:
+* Go to the main folder of this project
 * Start your rails server: `rails s`
 * Navigate to http://localhost:3000 in your browser.
-
-#### Author
-Manish Shrestha (manishshrestha2006@gmail.com)
-
 
 ### Environment
 * Ruby version 2.7.0
 * Rail version 6.0.3.1
+* yard version 0.9.25
 
-### TODO
-* System dependencies
+### Docs generation
+Docs generated from code comments using `yard`.
 
-* Configuration
+### How to run the test suite
+Go the main folder and run the rspec command.
+`rspec -f d`
 
-* Database creation
+### System dependencies
+Not much dependencies except that it should have rails installed.
 
-* Database initialization
+### Configuration
+Not much to configure.
 
-* How to run the test suite
+#### Author
+Manish Shrestha (manishshrestha2006@gmail.com)
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
 

@@ -5,6 +5,9 @@ include ApplicationHelper
 class BoardsController < ApplicationController
   include Scoring
 
+  ## API to start a new game. Returns the game id and the boogle string corresponding to
+  # the game id.
+  #
   def start
     game_index = rand (0 ..  BOOGLE_STRINGS.length-1)
 
@@ -16,14 +19,13 @@ class BoardsController < ApplicationController
     )
   end
 
+  ## API to return the score for the given word for the given game id
+  #
   def score
     game_id = params[:id].to_i
     submitted_word = params[:word]
 
-    # get_score
     # puts("game id = #{game_id} ")
-
-    # TODO: add real logic for scoring.
     score =  get_score(submitted_word, game_id)
     render(
         json: {
