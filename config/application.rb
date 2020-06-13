@@ -7,6 +7,7 @@ require 'rails/all'
 Bundler.require(*Rails.groups)
 
 require_relative '../lib/constants'
+require_relative '../lib/dictionary_words'
 
 module BoogleGame
   class Application < Rails::Application

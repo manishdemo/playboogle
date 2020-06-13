@@ -19,6 +19,7 @@ module Scoring
     submitted_word_length = submitted_word.length
 
     return 0 unless is_valid_path(submitted_word, game_id)
+    return 0 unless DICT_WORDS.include?(submitted_word)
 
     (submitted_word_length > (MIN_WORD_LENGTH+1)) ? (submitted_word_length - MIN_WORD_LENGTH): 1
   end

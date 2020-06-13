@@ -82,6 +82,17 @@ RSpec.describe "Api::Boards", type: :request do
       expect(JSON.parse(response.body)['score']).to eq(2)
     end
 
+    it "does not get score for valid characters whose corresponding word is not in dictionary" do
+      game_index = 0 #bsttrafrhwleoedm
+
+      get '/api/score', params: {
+          :id  => game_index,
+          :word => "bstt"
+      }
+
+      expect(JSON.parse(response.body)['score']).to eq(0)
+    end
+
 
   end
 
