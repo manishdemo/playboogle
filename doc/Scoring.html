@@ -1,0 +1,1042 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>
+  Module: Scoring
+  
+    &mdash; Documentation by YARD 0.9.25
+  
+</title>
+
+  <link rel="stylesheet" href="css/style.css" type="text/css" />
+
+  <link rel="stylesheet" href="css/common.css" type="text/css" />
+
+<script type="text/javascript">
+  pathId = "Scoring";
+  relpath = '';
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div class="nav_wrap">
+      <iframe id="nav" src="class_list.html?1"></iframe>
+      <div id="resizer"></div>
+    </div>
+
+    <div id="main" tabindex="-1">
+      <div id="header">
+        <div id="menu">
+  
+    <a href="_index.html">Index (S)</a> &raquo;
+    
+    
+    <span class="title">Scoring</span>
+  
+</div>
+
+        <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="class_list.html">
+
+        <svg width="24" height="24">
+          <rect x="0" y="4" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="12" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="20" width="24" height="4" rx="1" ry="1"></rect>
+        </svg>
+    </a>
+  
+</div>
+        <div class="clear"></div>
+      </div>
+
+      <div id="content"><h1>Module: Scoring
+  
+  
+  
+</h1>
+<div class="box_info">
+  
+
+  
+  
+  <dl>
+      <dt>Extended by:</dt>
+      <dd>ActiveSupport::Concern</dd>
+  </dl>
+  
+  
+  
+  
+
+  
+  <dl>
+    <dt>Included in:</dt>
+    <dd><span class='object_link'><a href="Api/BoardsController.html" title="Api::BoardsController (class)">Api::BoardsController</a></span></dd>
+  </dl>
+  
+
+  
+  <dl>
+    <dt>Defined in:</dt>
+    <dd>app/controllers/concerns/scoring.rb</dd>
+  </dl>
+  
+</div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Author:</p>
+<ul class="author">
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'>
+<p>Manish Shrestha (manishshrestha2006 at gmail dot com)</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div>
+  
+    <h2>
+      Constant Summary
+      <small><a href="#" class="constants_summary_toggle">collapse</a></small>
+    </h2>
+
+    <dl class="constants">
+      
+        <dt id="MIN_WORD_LENGTH-constant" class="">MIN_WORD_LENGTH =
+          
+        </dt>
+        <dd><pre class="code"><span class='int'>3</span></pre></dd>
+      
+        <dt id="MAX_WORD_LENGTH-constant" class="">MAX_WORD_LENGTH =
+          
+        </dt>
+        <dd><pre class="code"><span class='int'>15</span></pre></dd>
+      
+        <dt id="BOOGLE_BOARD_WIDTH-constant" class="">BOOGLE_BOARD_WIDTH =
+          
+        </dt>
+        <dd><pre class="code"><span class='int'>4</span></pre></dd>
+      
+    </dl>
+  
+
+
+
+
+
+
+
+  
+    <h2>
+      Instance Method Summary
+      <small><a href="#" class="summary_toggle">collapse</a></small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#get_char_positions-instance_method" title="#get_char_positions (instance method)">#<strong>get_char_positions</strong>(str_to_scan_on, char_to_scan)  &#x21d2; Array </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Finds location of the provided character in the given string.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#get_next_allowed_paths-instance_method" title="#get_next_allowed_paths (instance method)">#<strong>get_next_allowed_paths</strong>(current_paths, char_locations)  &#x21d2; Array&lt;Array&gt; </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Determines the next valid paths/moves, when the given locations of a character, are to be appended to the existing valid paths.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#get_score-instance_method" title="#get_score (instance method)">#<strong>get_score</strong>(submitted_word, game_id)  &#x21d2; Integer </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Determines the score for the given word in the given game.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#is_adjacent_cell-instance_method" title="#is_adjacent_cell (instance method)">#<strong>is_adjacent_cell</strong>(first_char_loc, next_char_loc, board_width)  &#x21d2; Boolean </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Finds if the given two characters lie next to each other in the given board size.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#is_valid_path-instance_method" title="#is_valid_path (instance method)">#<strong>is_valid_path</strong>(submitted_word, game_id)  &#x21d2; Boolean </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Determines if the submitted word can be formed from the game string using valid moves.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#is_valid_word-instance_method" title="#is_valid_word (instance method)">#<strong>is_valid_word</strong>(word)  &#x21d2; Boolean </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Performs basic validation like check for length of the word and the presence of non-alphabets.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+  
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="get_char_positions-instance_method">
+  
+    #<strong>get_char_positions</strong>(str_to_scan_on, char_to_scan)  &#x21d2; <tt>Array</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Finds location of the provided character in the given string.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>str_to_scan_on</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The string in which to scan for the character.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>char_to_scan</span>
+      
+      
+        <span class='type'>(<tt>Char</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The character to scan in the string.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Array</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Returns array of positions of the provided character.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/controllers/concerns/scoring.rb', line 77</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_get_char_positions'>get_char_positions</span><span class='lparen'>(</span><span class='id identifier rubyid_str_to_scan_on'>str_to_scan_on</span><span class='comma'>,</span> <span class='id identifier rubyid_char_to_scan'>char_to_scan</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_detected_positions'>detected_positions</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_search_pos'>search_pos</span> <span class='op'>=</span> <span class='int'>0</span>
+
+  <span class='kw'>while</span> <span class='lparen'>(</span><span class='id identifier rubyid_first_char_pos'>first_char_pos</span> <span class='op'>=</span> <span class='id identifier rubyid_str_to_scan_on'>str_to_scan_on</span><span class='period'>.</span><span class='id identifier rubyid_index'>index</span><span class='lparen'>(</span><span class='id identifier rubyid_char_to_scan'>char_to_scan</span><span class='comma'>,</span> <span class='id identifier rubyid_search_pos'>search_pos</span><span class='rparen'>)</span><span class='rparen'>)</span> <span class='op'>!=</span> <span class='kw'>nil</span> <span class='kw'>do</span>
+    <span class='id identifier rubyid_detected_positions'>detected_positions</span><span class='period'>.</span><span class='id identifier rubyid_append'>append</span><span class='lparen'>(</span><span class='id identifier rubyid_first_char_pos'>first_char_pos</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_search_pos'>search_pos</span> <span class='op'>=</span> <span class='id identifier rubyid_first_char_pos'>first_char_pos</span> <span class='op'>+</span> <span class='int'>1</span>
+  <span class='kw'>end</span>
+
+  <span class='id identifier rubyid_detected_positions'>detected_positions</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="get_next_allowed_paths-instance_method">
+  
+    #<strong>get_next_allowed_paths</strong>(current_paths, char_locations)  &#x21d2; <tt>Array&lt;Array&gt;</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Determines the next valid paths/moves, when the given locations of a character, are to be appended to the existing valid paths.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>current_paths</span>
+      
+      
+        <span class='type'>(<tt>Array&lt;Array&gt;</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The array of existing valid paths. Each path is an array of the valid locations in the path.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>char_locations</span>
+      
+      
+        <span class='type'>(<tt>Array</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Array of the locations of the next character to be evaluated.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Array&lt;Array&gt;</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Returns a new array of next valid paths, when the provided character location is added to given paths.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/controllers/concerns/scoring.rb', line 97</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_get_next_allowed_paths'>get_next_allowed_paths</span><span class='lparen'>(</span><span class='id identifier rubyid_current_paths'>current_paths</span><span class='comma'>,</span> <span class='id identifier rubyid_char_locations'>char_locations</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_next_possible_paths'>next_possible_paths</span> <span class='op'>=</span> <span class='const'>Array</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span>
+  <span class='comment'># initialize with the location of the 1st character
+</span>  <span class='kw'>if</span> <span class='id identifier rubyid_current_paths'>current_paths</span><span class='period'>.</span><span class='id identifier rubyid_length'>length</span> <span class='op'>==</span> <span class='int'>0</span>
+    <span class='id identifier rubyid_char_locations'>char_locations</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_char_location'>char_location</span><span class='op'>|</span>
+      <span class='id identifier rubyid_next_possible_paths'>next_possible_paths</span><span class='period'>.</span><span class='id identifier rubyid_append'>append</span><span class='lparen'>(</span><span class='lbracket'>[</span><span class='id identifier rubyid_char_location'>char_location</span><span class='rbracket'>]</span><span class='rparen'>)</span>
+    <span class='rbrace'>}</span>
+    <span class='kw'>return</span> <span class='id identifier rubyid_next_possible_paths'>next_possible_paths</span>
+  <span class='kw'>end</span>
+
+  <span class='comment'>#if the char location is in adjacent cell of the last cell of a possible_path, include in the path
+</span>  <span class='id identifier rubyid_current_paths'>current_paths</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_current_path'>current_path</span><span class='op'>|</span>
+    <span class='id identifier rubyid_end_pos_of_path'>end_pos_of_path</span> <span class='op'>=</span> <span class='id identifier rubyid_current_path'>current_path</span><span class='lbracket'>[</span><span class='op'>-</span><span class='int'>1</span><span class='rbracket'>]</span>
+    <span class='id identifier rubyid_char_locations'>char_locations</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_char_location'>char_location</span><span class='op'>|</span>
+      <span class='kw'>if</span> <span class='kw'>not</span> <span class='id identifier rubyid_current_path'>current_path</span><span class='period'>.</span><span class='id identifier rubyid_include?'>include?</span> <span class='id identifier rubyid_char_location'>char_location</span>
+        <span class='kw'>if</span> <span class='id identifier rubyid_is_adjacent_cell'>is_adjacent_cell</span><span class='lparen'>(</span><span class='id identifier rubyid_end_pos_of_path'>end_pos_of_path</span><span class='comma'>,</span> <span class='id identifier rubyid_char_location'>char_location</span><span class='comma'>,</span> <span class='const'><span class='object_link'><a href="#BOOGLE_BOARD_WIDTH-constant" title="Scoring::BOOGLE_BOARD_WIDTH (constant)">BOOGLE_BOARD_WIDTH</a></span></span><span class='rparen'>)</span>
+          <span class='id identifier rubyid_next_possible_paths'>next_possible_paths</span><span class='period'>.</span><span class='id identifier rubyid_append'>append</span><span class='lparen'>(</span><span class='id identifier rubyid_current_path'>current_path</span> <span class='op'>+</span> <span class='lbracket'>[</span><span class='id identifier rubyid_char_location'>char_location</span><span class='rbracket'>]</span><span class='rparen'>)</span>
+        <span class='kw'>end</span>
+      <span class='kw'>end</span>
+    <span class='rbrace'>}</span>
+  <span class='rbrace'>}</span>
+
+  <span class='id identifier rubyid_next_possible_paths'>next_possible_paths</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="get_score-instance_method">
+  
+    #<strong>get_score</strong>(submitted_word, game_id)  &#x21d2; <tt>Integer</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Determines the score for the given word in the given game.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>submitted_word</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The word submitted by the user.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>game_id</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The id of the boogle game.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Returns score for the submitted word in the game. Returns 0 if any error or anything invalid.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/controllers/concerns/scoring.rb', line 15</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_get_score'>get_score</span><span class='lparen'>(</span><span class='id identifier rubyid_submitted_word'>submitted_word</span><span class='comma'>,</span> <span class='id identifier rubyid_game_id'>game_id</span><span class='rparen'>)</span>
+  <span class='kw'>return</span> <span class='int'>0</span> <span class='kw'>unless</span> <span class='id identifier rubyid_is_valid_word'>is_valid_word</span><span class='lparen'>(</span><span class='id identifier rubyid_submitted_word'>submitted_word</span><span class='rparen'>)</span>
+
+  <span class='id identifier rubyid_submitted_word'>submitted_word</span> <span class='op'>=</span> <span class='id identifier rubyid_submitted_word'>submitted_word</span><span class='period'>.</span><span class='id identifier rubyid_downcase'>downcase</span>
+  <span class='id identifier rubyid_submitted_word_length'>submitted_word_length</span> <span class='op'>=</span> <span class='id identifier rubyid_submitted_word'>submitted_word</span><span class='period'>.</span><span class='id identifier rubyid_length'>length</span>
+
+  <span class='kw'>return</span> <span class='int'>0</span> <span class='kw'>unless</span> <span class='id identifier rubyid_is_valid_path'>is_valid_path</span><span class='lparen'>(</span><span class='id identifier rubyid_submitted_word'>submitted_word</span><span class='comma'>,</span> <span class='id identifier rubyid_game_id'>game_id</span><span class='rparen'>)</span>
+  <span class='kw'>return</span> <span class='int'>0</span> <span class='kw'>unless</span> <span class='const'>DICT_WORDS</span><span class='period'>.</span><span class='id identifier rubyid_include?'>include?</span><span class='lparen'>(</span><span class='id identifier rubyid_submitted_word'>submitted_word</span><span class='rparen'>)</span>
+
+  <span class='lparen'>(</span><span class='id identifier rubyid_submitted_word_length'>submitted_word_length</span> <span class='op'>&gt;</span> <span class='lparen'>(</span><span class='const'><span class='object_link'><a href="#MIN_WORD_LENGTH-constant" title="Scoring::MIN_WORD_LENGTH (constant)">MIN_WORD_LENGTH</a></span></span><span class='op'>+</span><span class='int'>1</span><span class='rparen'>)</span><span class='rparen'>)</span> <span class='op'>?</span> <span class='lparen'>(</span><span class='id identifier rubyid_submitted_word_length'>submitted_word_length</span> <span class='op'>-</span> <span class='const'><span class='object_link'><a href="#MIN_WORD_LENGTH-constant" title="Scoring::MIN_WORD_LENGTH (constant)">MIN_WORD_LENGTH</a></span></span><span class='rparen'>)</span><span class='op'>:</span> <span class='int'>1</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="is_adjacent_cell-instance_method">
+  
+    #<strong>is_adjacent_cell</strong>(first_char_loc, next_char_loc, board_width)  &#x21d2; <tt>Boolean</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Finds if the given two characters lie next to each other in the given board size.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>first_char_loc</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Location of a character in the board</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>next_char_loc</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Location of the next character in the board, that needs to be compared</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>board_width</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The width of the Boogle board.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Returns true if the given two characters lie next to each other in the given board size</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/controllers/concerns/scoring.rb', line 128</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_is_adjacent_cell'>is_adjacent_cell</span><span class='lparen'>(</span><span class='id identifier rubyid_first_char_loc'>first_char_loc</span><span class='comma'>,</span> <span class='id identifier rubyid_next_char_loc'>next_char_loc</span><span class='comma'>,</span> <span class='id identifier rubyid_board_width'>board_width</span><span class='rparen'>)</span>
+  <span class='comment'># if same locations, they are not adjacent
+</span>  <span class='kw'>return</span> <span class='kw'>false</span> <span class='kw'>if</span> <span class='id identifier rubyid_first_char_loc'>first_char_loc</span> <span class='op'>==</span> <span class='id identifier rubyid_next_char_loc'>next_char_loc</span>
+
+  <span class='id identifier rubyid_col_1st'>col_1st</span> <span class='op'>=</span> <span class='id identifier rubyid_first_char_loc'>first_char_loc</span><span class='op'>%</span><span class='id identifier rubyid_board_width'>board_width</span>
+  <span class='id identifier rubyid_row_1st'>row_1st</span> <span class='op'>=</span> <span class='id identifier rubyid_first_char_loc'>first_char_loc</span><span class='op'>/</span><span class='id identifier rubyid_board_width'>board_width</span>
+  <span class='id identifier rubyid_col_2nd'>col_2nd</span> <span class='op'>=</span> <span class='id identifier rubyid_next_char_loc'>next_char_loc</span><span class='op'>%</span><span class='id identifier rubyid_board_width'>board_width</span>
+  <span class='id identifier rubyid_row_2nd'>row_2nd</span> <span class='op'>=</span> <span class='id identifier rubyid_next_char_loc'>next_char_loc</span><span class='op'>/</span><span class='id identifier rubyid_board_width'>board_width</span>
+
+  <span class='comment'>#if the col or row location difference is not greater than 1 , they are adjacent
+</span>  <span class='lparen'>(</span><span class='lparen'>(</span><span class='id identifier rubyid_col_1st'>col_1st</span><span class='op'>-</span><span class='id identifier rubyid_col_2nd'>col_2nd</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_abs'>abs</span> <span class='op'>&lt;=</span><span class='int'>1</span> <span class='kw'>and</span> <span class='lparen'>(</span><span class='id identifier rubyid_row_1st'>row_1st</span><span class='op'>-</span><span class='id identifier rubyid_row_2nd'>row_2nd</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_abs'>abs</span> <span class='op'>&lt;=</span><span class='int'>1</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="is_valid_path-instance_method">
+  
+    #<strong>is_valid_path</strong>(submitted_word, game_id)  &#x21d2; <tt>Boolean</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Determines if the submitted word can be formed from the game string using valid moves</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>submitted_word</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The input word submitted by user.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>game_id</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The id of the boogle game.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Return  true if the the submitted word can be formed from the game string using valid moves</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/controllers/concerns/scoring.rb', line 51</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_is_valid_path'>is_valid_path</span><span class='lparen'>(</span><span class='id identifier rubyid_submitted_word'>submitted_word</span><span class='comma'>,</span> <span class='id identifier rubyid_game_id'>game_id</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_possible_paths'>possible_paths</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_boogle_string'>boogle_string</span> <span class='op'>=</span> <span class='const'>BOOGLE_STRINGS</span><span class='period'>.</span><span class='id identifier rubyid_at'>at</span><span class='lparen'>(</span><span class='id identifier rubyid_game_id'>game_id</span><span class='rparen'>)</span>
+
+  <span class='comment'># puts(&quot;boogle_string = #{boogle_string}&quot;)
+</span>  <span class='comment'># puts(&quot;submitted_word = #{submitted_word}&quot;)
+</span>
+  <span class='id identifier rubyid_submitted_word'>submitted_word</span><span class='period'>.</span><span class='id identifier rubyid_split'>split</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_ch'>ch</span><span class='op'>|</span>
+    <span class='id identifier rubyid_char_locations'>char_locations</span> <span class='op'>=</span> <span class='id identifier rubyid_get_char_positions'>get_char_positions</span><span class='lparen'>(</span><span class='id identifier rubyid_boogle_string'>boogle_string</span><span class='comma'>,</span> <span class='id identifier rubyid_ch'>ch</span><span class='rparen'>)</span>
+    <span class='kw'>return</span> <span class='kw'>false</span> <span class='kw'>if</span> <span class='id identifier rubyid_char_locations'>char_locations</span><span class='period'>.</span><span class='id identifier rubyid_length'>length</span> <span class='op'>==</span> <span class='int'>0</span>
+
+    <span class='comment'># puts(&quot;before call. possible path: #{possible_paths}. char= #{ch} char_locations: #{char_locations}&quot;)
+</span>    <span class='id identifier rubyid_possible_paths'>possible_paths</span> <span class='op'>=</span> <span class='id identifier rubyid_get_next_allowed_paths'>get_next_allowed_paths</span><span class='lparen'>(</span><span class='id identifier rubyid_possible_paths'>possible_paths</span><span class='comma'>,</span> <span class='id identifier rubyid_char_locations'>char_locations</span><span class='rparen'>)</span>
+    <span class='comment'># puts(&quot;after call. possible path: #{possible_paths}.&quot;)
+</span>
+    <span class='kw'>return</span> <span class='kw'>false</span>  <span class='kw'>if</span> <span class='lparen'>(</span><span class='id identifier rubyid_possible_paths'>possible_paths</span><span class='period'>.</span><span class='id identifier rubyid_length'>length</span> <span class='op'>==</span> <span class='int'>0</span><span class='rparen'>)</span>
+  <span class='rbrace'>}</span>
+
+  <span class='id identifier rubyid_possible_paths'>possible_paths</span><span class='period'>.</span><span class='id identifier rubyid_length'>length</span> <span class='op'>&gt;</span> <span class='int'>0</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="is_valid_word-instance_method">
+  
+    #<strong>is_valid_word</strong>(word)  &#x21d2; <tt>Boolean</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Performs basic validation like check for length of the word and the presence of non-alphabets.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>word</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The word to be validated</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Returns true if basic validations is passed by the word</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/controllers/concerns/scoring.rb', line 33</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_is_valid_word'>is_valid_word</span><span class='lparen'>(</span><span class='id identifier rubyid_word'>word</span><span class='rparen'>)</span>
+  <span class='comment'># check if length of the word is enough
+</span>  <span class='kw'>return</span> <span class='kw'>false</span> <span class='kw'>if</span> <span class='lparen'>(</span><span class='id identifier rubyid_word'>word</span><span class='period'>.</span><span class='id identifier rubyid_length'>length</span> <span class='op'>&lt;</span> <span class='const'><span class='object_link'><a href="#MIN_WORD_LENGTH-constant" title="Scoring::MIN_WORD_LENGTH (constant)">MIN_WORD_LENGTH</a></span></span> <span class='kw'>or</span> <span class='id identifier rubyid_word'>word</span><span class='period'>.</span><span class='id identifier rubyid_length'>length</span> <span class='op'>&gt;</span> <span class='const'><span class='object_link'><a href="#MAX_WORD_LENGTH-constant" title="Scoring::MAX_WORD_LENGTH (constant)">MAX_WORD_LENGTH</a></span></span><span class='rparen'>)</span>
+
+  <span class='comment'>#check if the characters are all alphabets
+</span>  <span class='kw'>if</span>  <span class='id identifier rubyid_word'>word</span><span class='lbracket'>[</span><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>[a-zA-Z]+</span><span class='regexp_end'>/</span></span><span class='rbracket'>]</span>  <span class='op'>!=</span> <span class='id identifier rubyid_word'>word</span>
+    <span class='id identifier rubyid_puts'>puts</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Contains more than alphabets: </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_word'>word</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+    <span class='kw'>return</span> <span class='kw'>false</span>
+  <span class='kw'>end</span>
+
+  <span class='kw'>true</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+
+      <div id="footer">
+  Generated on Sat Jun 13 17:37:32 2020 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.9.25 (ruby-2.7.0).
+</div>
+
+    </div>
+  </body>
+</html>

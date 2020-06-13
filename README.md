@@ -5,7 +5,7 @@ has been made as simple as possible.
 
 
 #### Run it locally:
-* Go to the main folder of this project
+* Go to the main folder of this project.
 * Start your rails server: `rails s`
 * Navigate to http://localhost:3000 in your browser.
 
@@ -15,10 +15,13 @@ has been made as simple as possible.
 * yard version 0.9.25
 
 ### Docs generation
-Docs generated from code comments using `yard`.
+Docs generated from code comments using yard. The command executed in the project folder :
+
+  `yard doc app/controllers/` 
 
 ### How to run the test suite
-Go the main folder and run the rspec command.
+Go the project folder and run the rspec command:
+
 `rspec -f d`
 
 ### System dependencies
@@ -28,6 +31,6 @@ Not much dependencies except that it should have rails installed.
 Not much to configure.
 
 #### Author
-Manish Shrestha (manishshrestha2006@gmail.com)
+Manish Shrestha (manishshrestha2006 at gmail dot com)
 
 
