@@ -51,16 +51,16 @@ module Scoring
     possible_paths = []
     boogle_string = BOOGLE_STRINGS.at(game_id)
 
-    puts("boogle_string = #{boogle_string}")
-    puts("submitted_word = #{submitted_word}")
+    # puts("boogle_string = #{boogle_string}")
+    # puts("submitted_word = #{submitted_word}")
 
     submitted_word.split('').each { |ch|
       char_locations = get_char_positions(boogle_string, ch)
       return false if char_locations.length == 0
 
-      puts("before call. possible path: #{possible_paths}. char= #{ch} char_locations: #{char_locations}")
+      # puts("before call. possible path: #{possible_paths}. char= #{ch} char_locations: #{char_locations}")
       possible_paths = get_next_allowed_paths(possible_paths, char_locations)
-      puts("after call. possible path: #{possible_paths}.")
+      # puts("after call. possible path: #{possible_paths}.")
 
       return false  if (possible_paths.length == 0)
     }

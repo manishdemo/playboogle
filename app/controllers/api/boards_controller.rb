@@ -21,7 +21,7 @@ class BoardsController < ApplicationController
     submitted_word = params[:word]
 
     # get_score
-    puts("game id = #{game_id} ")
+    # puts("game id = #{game_id} ")
 
     # TODO: add real logic for scoring.
     score =  get_score(submitted_word, game_id)
