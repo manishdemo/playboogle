@@ -3,13 +3,6 @@ require_relative 'boot'
 #Not use db. commented
 #require 'rails/all'
 
-# Require the gems listed in Gemfile, including any gems
-# you've limited to :test, :development, or :production.
-Bundler.require(*Rails.groups)
-
-require_relative '../lib/constants'
-require_relative '../lib/dictionary_words'
-
 #Not use db. added
 # This is not loaded in rails/all but inside active_record so add it if
 # you want your models work as expected
@@ -22,6 +15,16 @@ require "action_view/railtie"
 # require "action_cable/engine" # Only for Rails >= 5.0
 require "sprockets/railtie"
 require "rails/test_unit/railtie"
+
+
+# Require the gems listed in Gemfile, including any gems
+# you've limited to :test, :development, or :production.
+Bundler.require(*Rails.groups)
+
+require_relative '../lib/constants'
+require_relative '../lib/dictionary_words'
+
+
 
 
 module BoogleGame
