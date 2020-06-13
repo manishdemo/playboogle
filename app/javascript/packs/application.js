@@ -5,7 +5,10 @@
 
 require("@rails/ujs").start()
 require("turbolinks").start()
-require("@rails/activestorage").start()
+
+// Not use db. commented
+// require("@rails/activestorage").start()
+
 require("channels")
 
 
