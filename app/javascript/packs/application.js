@@ -19,6 +19,7 @@ require("channels")
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
 
+import "../components/style.css"
 import "../components/section/BoardArea.css"
 import "../components/section/GameIntro.css"
 import "../components/section/ScoreArea.css"
