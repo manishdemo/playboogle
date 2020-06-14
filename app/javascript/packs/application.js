@@ -5,7 +5,10 @@
 
 require("@rails/ujs").start()
 require("turbolinks").start()
-require("@rails/activestorage").start()
+
+// Not use db. commented
+// require("@rails/activestorage").start()
+
 require("channels")
 
 
@@ -15,3 +18,12 @@ require("channels")
 //
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
+
+import "../components/style.css"
+import "../components/section/BoardArea.css"
+import "../components/section/GameIntro.css"
+import "../components/section/ScoreArea.css"
+
+import "../components/common/BoardControl.css"
+import "../components/common/BoogleBoard.css"
+import "../components/common/PlayerInput.css"

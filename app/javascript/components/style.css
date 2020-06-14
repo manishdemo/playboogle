@@ -1,3 +1,12 @@
+body {
+    background-color: #8be3e1;
+}
+
+.contact-info {
+    backgroundColor: '#8be3e1';
+    clear: left;
+}
+
 .test-red {
     background-color: #730E15;
 }

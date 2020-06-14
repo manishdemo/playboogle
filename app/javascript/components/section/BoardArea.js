@@ -89,7 +89,7 @@ class BoardArea extends React.Component {
 
     render() {
         return (
-            <div className="game-area">
+            <div >
                 <div className="board-area">
                     <BoardControl onClick={this.handleGameStartStopClick} gameStarted={this.state.isGameStarted}
                                   onClick1={this.handleResetClick}
