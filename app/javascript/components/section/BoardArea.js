@@ -6,7 +6,7 @@ import BoogleBoard from "../common/BoogleBoard"
 import BoardControl from "../common/BoardControl"
 import PlayerInput from "../common/PlayerInput"
 import ScoreArea from "./ScoreArea";
-import {GAME_DURATION, MIN_WORD_LEN} from "../../constants";
+import {GAME_DURATION, INFO_TO_START_GAME, INFO_TO_SUBMIT_WORD, MIN_WORD_LEN} from "../../constants";
 
 class BoardArea extends React.Component {
     constructor(props) {
@@ -23,7 +23,8 @@ class BoardArea extends React.Component {
             history: {
             },
 
-            inputWord:""
+            inputWord:"",
+            lastSubmitStatus: "status of the game"
         };
 
         // This binding is necessary to make `this` work in the callback
@@ -42,12 +43,16 @@ class BoardArea extends React.Component {
 
         if (this.state.isGameStarted) {
             this.resetTimer(false);
+            this.setState( state => ({
+                lastSubmitStatus: INFO_TO_START_GAME
+            }))
 
         } else {
             this.resetTimer();
-            this.setState(state => ({
-                history: {}
-            }));
+            this.setState({
+                history: {},
+                lastSubmitStatus: INFO_TO_SUBMIT_WORD
+            });
         }
 
     }
@@ -56,7 +61,8 @@ class BoardArea extends React.Component {
         this.resetTimer(this.state.isGameStarted);
         this.setState(state => ({
             inputWord: "",
-            history: {}
+            history: {},
+            lastSubmitStatus: this.state.isGameStarted?INFO_TO_SUBMIT_WORD:INFO_TO_START_GAME
         }));
 
     }
@@ -77,10 +83,15 @@ class BoardArea extends React.Component {
     handleWordSubmit( event) {
         const inputWord = this.state.inputWord.trim();
         const history = this.state.history;
+        let submitStatus = ""
 
         if (!(inputWord in history) && inputWord.length >= MIN_WORD_LEN) {
             const gameId=this.state.gameInfo.id;
             this.getScoreFromApi(inputWord, gameId);
+        } else {
+            this.setState( {
+                lastSubmitStatus: "Invalid submission: '"+inputWord+"'"
+            })
         }
 
         this.setState({inputWord: ""});
@@ -99,6 +110,8 @@ class BoardArea extends React.Component {
                     <PlayerInput ref={this.refTextInput} inputWord={this.state.inputWord} onWordSubmit={this.handleWordSubmit}
                                  isGameStarted={this.state.isGameStarted}
                                  onInputWordChange={this.handleInputWordChange}/>
+                    <div className="game_status"> {this.state.lastSubmitStatus} </div>
+
                 </div>
                 <ScoreArea ref={this.refScoreTable} history={this.state.history}/>
             </div>
@@ -120,8 +133,11 @@ class BoardArea extends React.Component {
         axios.get(`start`)
             .then(res => {
                 const response = res.data;
-                this.setState({gameInfo: response});
-                this.setState(  {isGameStarted: false})
+                this.setState({
+                    gameInfo: response,
+                    lastSubmitStatus: INFO_TO_START_GAME,
+                    isGameStarted: false
+                });
             })
     }
 
@@ -137,8 +153,14 @@ class BoardArea extends React.Component {
                             history: {
                                 ...history,
                                 [inputWord]: response.score
+                            },
+                            lastSubmitStatus: "Got " +response.score +" point for '"+inputWord+"'"
                             }
-                            }
+                        )
+                    } else {
+                        this.setState({
+                                lastSubmitStatus: "Got " +response.score +" point for '"+inputWord+"'"
+                        }
                         )
                     }
                 }
@@ -173,7 +195,8 @@ class BoardArea extends React.Component {
             clearInterval(this.timerID);
             this.setState({
                 isGameStarted: false,
-                inputWord: ""
+                inputWord: "",
+                lastSubmitStatus: INFO_TO_START_GAME
             })
         }
     }

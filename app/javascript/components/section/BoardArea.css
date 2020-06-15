@@ -7,3 +7,9 @@
     border-bottom-left-radius: 25px;
     border-top-left-radius: 25px;
 }
+
+.game_status {
+    color: red;
+    padding-left: 80px;
+    padding-top: 5px;
+}
