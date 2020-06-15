@@ -62,6 +62,8 @@
 
 <p>This is a Boogle game developed using React and Ruby on Rails. The implementation has been made as simple as possible.</p>
 
+<p>A Heroku free dyano based deployment can be found at <a href="https://playboogle.herokuapp.com">playboogle.herokuapp.com</a>/ . You may need to wait or retry after a while, if the deployment is in sleep state.</p>
+
 <h4 id="label-Run+it+locally-3A">Run it locally:</h4>
 <ul><li>
 <p>Go to the main folder of this project.</p>
@@ -75,10 +77,20 @@
 <ul><li>
 <p>Ruby version 2.7.0</p>
 </li><li>
-<p>Rail version 6.0.3.1</p>
+<p>Rails version 6.0.3.1</p>
+</li><li>
+<p>react version 16.13.1</p>
+</li><li>
+<p>yarn version 1.22.4</p>
 </li><li>
 <p>yard version 0.9.25</p>
+</li><li>
+<p>webpacker version 4.2.2</p>
 </li></ul>
+
+<h3 id="label-System+dependencies">System dependencies</h3>
+
+<p>It should have Ruby on Rails version 6 working and required javascript packages and ruby gems should be installed using <code>yarn install</code> and <code>bundle install</code> .</p>
 
 <h3 id="label-Docs+generation">Docs generation</h3>
 
@@ -87,18 +99,13 @@
 <p><code>yard doc app/controllers/</code></p>
 
 <h3 id="label-How+to+run+the+test+suite">How to run the test suite</h3>
-
-<p>Go the project folder and run the rspec command:</p>
-
-<p><code>rspec -f d</code></p>
-
-<h3 id="label-System+dependencies">System dependencies</h3>
-
-<p>Not much dependencies except that it should have rails installed.</p>
-
-<h3 id="label-Configuration">Configuration</h3>
-
-<p>Not much to configure.</p>
+<ul><li>
+<p>Go the project folder.</p>
+</li><li>
+<p>Run the rspec command to run rails test cases: <code>rspec -f d</code></p>
+</li><li>
+<p>Run the react tests: <code>yarn jest</code></p>
+</li></ul>
 
 <h4 id="label-Author">Author</h4>
 
@@ -106,7 +113,7 @@
 </div></div>
 
       <div id="footer">
-  Generated on Sun Jun 14 08:55:01 2020 by
+  Generated on Mon Jun 15 08:55:36 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.25 (ruby-2.7.0).
 </div>
